@@ -4,8 +4,19 @@ import { FaUserCircle } from 'react-icons/fa';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 
+
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+    
+    const handleLogOut =()=>{
+        logOut()
+        .then()
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+
+    
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='rounded'>
@@ -23,7 +34,7 @@ const Header = () => {
                                 <FaUserCircle className='my-auto' style={{ fontSize: '2rem' }}></FaUserCircle>}
 
                             {user ?
-                                <Button variant="dark">Log Out</Button> :
+                                <Button onClick={handleLogOut} variant="dark">Log Out</Button> :
                                 <Link to="/login">
                                     <Button variant="dark">Log In</Button>
                                 </Link>}

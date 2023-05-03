@@ -1,10 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from '../../firebase/firebase.config';
 
 const LogIn = () => {
-
+    const navigate = useNavigate()
+    const [error, setError]=useState('');
     const { signIn }= useContext(AuthContext);
     const handleLogIn =event =>{
         event.preventDefault();
@@ -17,15 +20,44 @@ const LogIn = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser)
+            navigate('/')
         })
         .catch(error=>{
             console.log(error);
+            setError(error.message);
         })
 
 
     }
 
+    const auth = getAuth(app);
+    const googleProvider = new GoogleAuthProvider;
+    const githubProvider = new GithubAuthProvider;
+    const handleGoogleSignIn =()=>{
+        signInWithPopup(auth,googleProvider)
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser)
+            navigate('/')
+            
+        })
+        .catch(error=>{
+            console.log(error);
+        })
 
+    }
+    const handleGithubSignIn =()=>{
+        signInWithPopup(auth,githubProvider)
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser)
+            navigate('/')
+            
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
 
     return (
         <Container className='w-25 m-auto mt-4'>
@@ -50,13 +82,13 @@ const LogIn = () => {
                 <br />
                 <Form.Text>
                     New Here ? <Link to="/register">Register</Link>
-                </Form.Text>
-                <Form.Text className='Text-success'>
-
-                </Form.Text>
-                <Form.Text className='Text-danger'>
-
-                </Form.Text>
+                </Form.Text> <br />
+                
+                <Form.Text className='text-danger'>
+                    {error}
+                </Form.Text> <br />
+                <button onClick={handleGoogleSignIn}>google logIn</button>
+                <button onClick={handleGithubSignIn}>github logIn</button>
             </Form>
         </Container>
     );
