@@ -18,7 +18,7 @@ const Header = () => {
 
     
     return (
-        <Container>
+        <Container className='mb-5 mt-2'>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='rounded'>
                 <Container>
                     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
