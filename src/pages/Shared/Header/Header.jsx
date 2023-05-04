@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
+import './Header.css'
 
 
 const Header = () => {
@@ -17,8 +18,8 @@ const Header = () => {
     console.log(user);
 
     return (
-        <Container className='mb-5 mt-2'>
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='rounded'>
+        <Container className='mb-5 mt-3'>
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='rounded header'>
                 <Container>
                     <Navbar.Brand className='fw-bold fs-3' href="#home">Chinese Cuisine</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -4,7 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
-import { IconName } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import './Login.css'
 
 const LogIn = () => {
     const navigate = useNavigate()
@@ -61,7 +62,7 @@ const LogIn = () => {
     }
 
     return (
-        <Container className='w-25 m-auto mt-4'>
+        <Container className='w-25 m-auto my-4 border border-black p-3 rounded login'>
             <h3>Please LogIn</h3>
             <Form onSubmit={handleLogIn}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -81,10 +82,11 @@ const LogIn = () => {
                     LogIn
                 </Button>
                 <br />
-                <Button className='w-100 my-2' onClick={handleGoogleSignIn}>google logIn</Button> <br />
-                <Button className='w-100' onClick={handleGithubSignIn}>github logIn</Button> <br />
-                <Form.Text>
-                    New Here ? <Link to="/register">Register</Link>
+                <p className='text-center'>Or, continue with</p>
+                <Button className='w-100 mb-2' onClick={handleGoogleSignIn}><FaGoogle></FaGoogle> Google</Button> <br />
+                <Button className='w-100' onClick={handleGithubSignIn}><FaGithub></FaGithub> Github</Button> <br />
+                <Form.Text className='p-1'>
+                    Don`t have an account? <Link to="/register">Register</Link>
                 </Form.Text> <br />
                 
                 <Form.Text className='text-danger'>

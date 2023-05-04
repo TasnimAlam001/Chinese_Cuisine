@@ -24,7 +24,7 @@ const Home = () => {
                 <Card className="bg-dark text-white">
                     <Card.Img src="https://t4.ftcdn.net/jpg/02/89/80/03/360_F_289800335_l89vweOGANYIhKuVHRgpGh5QRwKQMsQx.jpg" alt="Card image" />
                     <Card.ImgOverlay className='ms-5 my-auto d-flex flex-column justify-content-center'>
-                        <Card.Title className='fs-1'>LET`S <span className='fw-bold'>COOK</span></Card.Title> <br />
+                        <Card.Title className='fs-1'>LET`S <span className='fw-bold'>COOK....</span></Card.Title> <br />
                         <Card.Text className='fs-2'>
                             EATING IS A NECESSITY BUT <br />
                             COOKING IS AN ART
@@ -42,7 +42,7 @@ const Home = () => {
                     ></Chef>)
                 }
             </div>
-            
+
 
         </Container>
     );

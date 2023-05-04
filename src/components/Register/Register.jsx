@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import './Register.css'
 
 const Register = () => {
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Register = () => {
 
 
     return (
-        <Container className='w-25 m-auto mt-4'>
+        <Container className='w-25 m-auto my-4 border border-black register p-3 rounded'>
             <h3>Please Register</h3>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -60,14 +61,14 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" name='password' placeholder="Password" required />
                 </Form.Group>
-                <p><small>Please add at least One uppercase,lowercase,numeric character,spacial character and add at least 8 characters in password </small></p>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <p><small>Please add at least One uppercase,lowercase,numeric character,spacial character and add at least 8 characters in password.</small></p>
+                <Form.Group className="" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" name='accept' label="Accept terms and conditions" />
                 </Form.Group>
                 <Form.Text className='text-danger'>
                     {error}
                 </Form.Text> <br />
-                <Button variant="primary" type="submit" className='w-25'>
+                <Button variant="primary" type="submit" className='w-100'>
                     Register
                 </Button>
                 <br />
