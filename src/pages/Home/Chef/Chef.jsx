@@ -3,6 +3,7 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import './chef.css'
 import { FaArrowRight, FaThumbsUp } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Chef = ({ Chef,showRecipes }) => {
     const { name, picture_url, likes, experience_years, quote,recipes,id } = Chef;
@@ -12,7 +13,8 @@ const Chef = ({ Chef,showRecipes }) => {
             <Card className='mb-4 card chef'>
                 <div style={{ height: '450px' }} className='p-4 d-md-flex'>
                     <div>
-                        <Card.Img className='my-auto' style={{ height: '350px', width: '300px' }} src={picture_url} />
+                        
+                        <LazyLoadImage className='rounded' style={{ height: '350px', width: '320px' }} src={picture_url} ></LazyLoadImage>
                         <Card.Text className=''>
                             <span className='text-primary mt-2 mb-0'>Experience: </span>
                             {experience_years} Years
