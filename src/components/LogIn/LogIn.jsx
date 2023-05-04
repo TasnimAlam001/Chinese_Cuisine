@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
@@ -8,7 +8,9 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import './Login.css'
 
 const LogIn = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
     const [error, setError]=useState('');
     const { signIn }= useContext(AuthContext);
     const handleLogIn =event =>{
@@ -22,7 +24,7 @@ const LogIn = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser)
-            navigate('/')
+            navigate(from, {replace: true })
         })
         .catch(error=>{
             console.log(error);
@@ -40,7 +42,7 @@ const LogIn = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser)
-            navigate('/')
+            navigate(from, {replace: true })
             
         })
         .catch(error=>{
@@ -53,7 +55,7 @@ const LogIn = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser)
-            navigate('/')
+            navigate(from, {replace: true })
             
         })
         .catch(error=>{

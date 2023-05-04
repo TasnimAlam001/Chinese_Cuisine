@@ -3,6 +3,7 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 import './Header.css'
+import { FaRegUserCircle } from 'react-icons/fa';
 
 
 const Header = () => {
@@ -33,7 +34,7 @@ const Header = () => {
                         <Nav>
                             {user &&
                                 <div className=''>
-                                    <img style={{height:'40px',width:'40px'}} className='me-3 rounded-circle pp' src={user.photoURL} alt="" />
+                                    <img style={{height:'40px',width:'40px'}} className='me-3 rounded-circle pp' src={user.photoURL? user.photoURL : <FaRegUserCircle></FaRegUserCircle>} alt="" />
                                     
                                 </div>
                             }
