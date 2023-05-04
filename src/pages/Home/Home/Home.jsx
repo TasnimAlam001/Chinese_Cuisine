@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Chef from '../Chef/Chef';
 import './Home.css'
 import { Card, Container } from 'react-bootstrap';
-import Recipes from '../Recipes/Recipes';
+import FamousRecipes from './FamousReccipes/FamousRecipes';
+
 
 const Home = () => {
     const [chefs, setChefs] = useState([])
@@ -33,7 +34,7 @@ const Home = () => {
                     </Card.ImgOverlay>
                 </Card>
             </div>
-            <div className='chefs'>
+            <div className='chefs mb-4'>
                 {
                     chefs.map(chef => <Chef
                         key={chef.id}
@@ -42,6 +43,9 @@ const Home = () => {
                     ></Chef>)
                 }
             </div>
+            <FamousRecipes></FamousRecipes>
+            
+            
 
 
         </Container>

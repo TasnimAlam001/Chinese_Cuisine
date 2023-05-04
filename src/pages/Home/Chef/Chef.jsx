@@ -10,8 +10,8 @@ const Chef = ({ Chef,showRecipes }) => {
     return (
         <Container className=''>
             <Card className='mb-4 card chef'>
-                <Row style={{ height: '450px' }} className='p-4'>
-                    <Col>
+                <div style={{ height: '450px' }} className='p-4 d-md-flex'>
+                    <div>
                         <Card.Img className='my-auto' style={{ height: '350px', width: '300px' }} src={picture_url} />
                         <Card.Text className=''>
                             <span className='text-primary mt-2 mb-0'>Experience: </span>
@@ -21,8 +21,8 @@ const Chef = ({ Chef,showRecipes }) => {
                             <span className='text-primary m-0'>Likes: </span>
                             {likes} <FaThumbsUp className='text-primary mb-2'></FaThumbsUp>
                         </Card.Text>
-                    </Col>
-                    <Col>
+                    </div>
+                    <div>
                         <Card.Body>
                             <Card.Title className='fs-2'>{name}</Card.Title>
                             <Card.Text className='fs-5 fst-italic'>
@@ -35,8 +35,8 @@ const Chef = ({ Chef,showRecipes }) => {
                         </Card.Text>
                         <Link to={`/chef/${id}`} onClick={()=>showRecipes(recipes)}><Button variant="outline-primary" className=''>Go to Recipes <FaArrowRight></FaArrowRight></Button></Link>
                         </Card.Body>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </Card>
 
 

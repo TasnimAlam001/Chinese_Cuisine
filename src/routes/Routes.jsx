@@ -5,6 +5,7 @@ import Blog from "../components/Blog/Blog";
 import LogIn from "../components/LogIn/LogIn";
 import Register from "../components/Register/Register";
 import Recipes from "../pages/Home/Recipes/Recipes";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -32,9 +33,16 @@ const router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path: '*',
+                element:<NotFound></NotFound>
             }
         ]
+        
+        
 
     }
+    
 ])
 export default router;
