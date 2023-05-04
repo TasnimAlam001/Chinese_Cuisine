@@ -19,7 +19,7 @@ const Home = () => {
         console.log(recipes);
     }
     return (
-        <Container >
+        <Container className='mb-5'>
             <div className='mb-5'>
                 <Card className="bg-dark text-white">
                     <Card.Img src="https://t4.ftcdn.net/jpg/02/89/80/03/360_F_289800335_l89vweOGANYIhKuVHRgpGh5QRwKQMsQx.jpg" alt="Card image" />
@@ -42,6 +42,7 @@ const Home = () => {
                     ></Chef>)
                 }
             </div>
+            
 
         </Container>
     );

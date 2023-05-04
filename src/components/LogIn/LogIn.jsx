@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
+import { IconName } from "react-icons/fa";
 
 const LogIn = () => {
     const navigate = useNavigate()
@@ -76,10 +77,12 @@ const LogIn = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember Me" />
                 </Form.Group>
-                <Button variant="primary" type="submit" className='w-25'>
+                <Button variant="primary" type="submit" className='w-100'>
                     LogIn
                 </Button>
                 <br />
+                <Button className='w-100 my-2' onClick={handleGoogleSignIn}>google logIn</Button> <br />
+                <Button className='w-100' onClick={handleGithubSignIn}>github logIn</Button> <br />
                 <Form.Text>
                     New Here ? <Link to="/register">Register</Link>
                 </Form.Text> <br />
@@ -87,8 +90,7 @@ const LogIn = () => {
                 <Form.Text className='text-danger'>
                     {error}
                 </Form.Text> <br />
-                <button onClick={handleGoogleSignIn}>google logIn</button>
-                <button onClick={handleGithubSignIn}>github logIn</button>
+                
             </Form>
         </Container>
     );
