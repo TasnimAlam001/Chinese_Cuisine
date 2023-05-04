@@ -21,7 +21,7 @@ const Header = () => {
         <Container className='mb-5 mt-2'>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='rounded'>
                 <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand href="#home">Chinese cuisine</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
