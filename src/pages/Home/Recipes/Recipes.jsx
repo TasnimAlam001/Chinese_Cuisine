@@ -12,7 +12,7 @@ const Recipes = () => {
     console.log(recipes);
     return (
         <Container>
-            <Card className='mb-4 card chef'>
+            <Card className='mb-4 card'>
                 <div style={{ height: '450px' }} className='p-4 d-flex'>
 
                     <div>
